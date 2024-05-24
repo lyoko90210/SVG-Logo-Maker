@@ -48,7 +48,7 @@ To generate a logo, run the application and follow the prompts:
 
 4. Open the `logo.svg` file in a browser to view the generated logo.
 
-[Watch a video demonstration of the application here.](https://www.youtube.com/channel/UCO-GXMJcdwpBBmDnTvnRzXg)
+[Watch a video demonstration of the application here.](https://youtu.be/WUHhlGaR4q0)
 
 ## License
 
