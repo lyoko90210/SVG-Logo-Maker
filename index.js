@@ -1,6 +1,6 @@
 const inquirer = require ("inquirer")
 const fs = require ("fs")
-const {Circle,Square,Triangle} = require("./lib/shapes")
+const {Circle, Square, Triangle} = require("./lib/shapes")
 
 
 const questions = [ 
@@ -36,10 +36,28 @@ const questions = [
 function init (){
  inquirer.prompt(questions)
  .then(Response =>{
-    console.log(Response)
+    //console.log(Response)
+    let newShape;
 
+    if(Response.shape === "square"){
+        newShape = new Square(Reponse.shapeColor)
+    }
+    else if(Response.shape === "circle"){
+        newShape =  new Circle(Response.shapeColor)
+    }
+    // others
 
+    let newSvg = `
+ <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  
+ ${newShape.render()}
 
+<text x="150" y="125" font-size="60" text-anchor="middle" fill="${Response.textColor}">${Response.text}</text>
+ 
+</svg>`
+
+fs.writeFileSync("newLogo.svg", newSvg )
+console.log("New Logo Created.")
  }) 
 }
 
