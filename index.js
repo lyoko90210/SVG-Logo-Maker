@@ -38,14 +38,17 @@ function init (){
  .then(Response =>{
     //console.log(Response)
     let newShape;
-
+// takes in a responese and places it inside of a svg file format
     if(Response.shape === "square"){
-        newShape = new Square(Reponse.shapeColor)
+        newShape = new Square(Response.shapeColor); 
     }
     else if(Response.shape === "circle"){
-        newShape =  new Circle(Response.shapeColor)
+        newShape =  new Circle(Response.shapeColor);
     }
-    // others
+    else if(Response.shape === "triangle"){
+        newShape =  new Triangle(Response.shapeColor); 
+    }
+    // others 
 
     let newSvg = `
  <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +58,7 @@ function init (){
 <text x="150" y="125" font-size="60" text-anchor="middle" fill="${Response.textColor}">${Response.text}</text>
  
 </svg>`
-
+// allows me to generate an svg file 
 fs.writeFileSync("newLogo.svg", newSvg )
 console.log("New Logo Created.")
  }) 
